@@ -1,0 +1,13 @@
+*.o
+*.ali
+*.dSYM
+*.swp
+.DS_Store
+obj/
+bin/
+lib/
+build/
+alire/
+config/
+*.exe
+vendor/ccv/
