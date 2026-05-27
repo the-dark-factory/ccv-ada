@@ -1,0 +1,17 @@
+--  Smoke-test example for ada-ccv. Builds an executable that
+--  loads, flips, and writes a PNG via the binding.
+
+with "../../ada_ccv.gpr";
+
+project Transform is
+
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Exec_Dir use ".";
+   for Main use ("transform.adb");
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-gnatwa", "-gnaty", "-g", "-O0");
+   end Compiler;
+
+end Transform;

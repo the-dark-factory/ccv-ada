@@ -11,3 +11,5 @@ alire/
 config/
 *.exe
 vendor/ccv/
+examples/transform/transform
+examples/transform/obj/

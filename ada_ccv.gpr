@@ -1,0 +1,54 @@
+--  GPR project file for the ada-ccv bindings.
+--
+--  Links against libccv.a built from the upstream CCV source.
+--  Path to libccv.a is configurable via the CCV_LIB_DIR
+--  environment variable; defaults to ~/dev/ccv/lib for local
+--  development (the dev shape — Tony's setup).
+--
+--  Consumers `with "ada_ccv.gpr"` and the Linker_Options below
+--  propagate the CCV link + macOS Accelerate framework.
+
+library project Ada_Ccv is
+
+   for Library_Name use "ada_ccv";
+   for Library_Kind use "static";
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Library_Dir use "lib";
+
+   CCV_Lib_Dir := external ("CCV_LIB_DIR", "/Users/tony/dev/ccv/lib");
+
+   --  Link the static libccv.a (which bundles NNC too — see
+   --  CHARTER) plus the macOS Accelerate framework that CCV's
+   --  BLAS path needs. On Linux these switches change to
+   --  -lblas -lpthread; cross-platform branch lands when needed.
+   --  -syslibroot points the Alire-shipped GCC at the Xcode SDK
+   --  so -framework Accelerate resolves on macOS. On Linux this
+   --  switch is harmless if the path doesn't exist.
+   --
+   --  -lpng / -ljpeg are required when CCV was built with libpng
+   --  + libjpeg support (HAVE_LIBPNG, HAVE_LIBJPEG in CCV's
+   --  config.mk). Without these, PNG/JPG read paths silently
+   --  return NULL matrices and the caller crashes on use.
+   package Linker is
+      for Linker_Options use
+        ("-L" & CCV_Lib_Dir,
+         "-L/opt/homebrew/lib",
+         "-lccv",
+         "-lpng",
+         "-ljpeg",
+         "-Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+         "-framework", "Accelerate",
+         "-lpthread");
+   end Linker;
+
+   package Compiler is
+      for Default_Switches ("ada") use
+        ("-gnatwa",       --  all warnings
+         "-gnaty",        --  default style checks
+         "-gnatVa",       --  all validity checks
+         "-O0",
+         "-g");
+   end Compiler;
+
+end Ada_Ccv;
