@@ -1,13 +1,13 @@
-name = "ada_ccv"
+name = "ccv_ada"
 description = "Ada bindings to Liu Liu's CCV computer vision library"
 version = "0.1.0"
 authors = ["The Dark Factory Ltd"]
 maintainers = ["tony.gair@thedarkfactory.co.uk"]
 maintainers-logins = ["tonygair"]
 licenses = "MIT"
-website = "https://github.com/the-dark-factory/ada-ccv"
+website = "https://github.com/the-dark-factory/ccv-ada"
 tags = ["binding", "image", "computer-vision", "ccv"]
-project-files = ["ada_ccv.gpr"]
+project-files = ["ccv_ada.gpr"]
 auto-gpr-with = false
 
 [build-switches]
@@ -23,7 +23,7 @@ auto-gpr-with = false
 #      LDFLAGS="-L/opt/homebrew/lib" ./configure
 #    make lib
 #
-#  ada_ccv.gpr's CCV_LIB_DIR environment variable points at
+#  ccv_ada.gpr's CCV_LIB_DIR environment variable points at
 #  the resulting libccv.a (defaults to ~/dev/ccv/lib).
 #
 #  CCV must be built with HAVE_LIBPNG + HAVE_LIBJPEG detected,

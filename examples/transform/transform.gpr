@@ -1,7 +1,7 @@
---  Smoke-test example for ada-ccv. Builds an executable that
+--  Smoke-test example for ccv-ada. Builds an executable that
 --  loads, flips, and writes a PNG via the binding.
 
-with "../../ada_ccv.gpr";
+with "../../ccv_ada.gpr";
 
 project Transform is
 

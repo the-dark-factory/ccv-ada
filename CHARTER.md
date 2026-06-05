@@ -1,4 +1,4 @@
-# ada-ccv — charter
+# ccv-ada — charter
 
 Ada bindings to Liu Liu's CCV (C-based Computer Vision library).
 The Dark Factory's third binding in the open-source Ada line —
@@ -86,7 +86,7 @@ Future v0.2+ surface (queued, not in scope now):
 - CCV is **not** in homebrew. We clone upstream + run
   `./configure && make` to produce `libccv.a`. Documented in
   the crate's build instructions.
-- `ada_ccv.gpr` links against `libccv.a`. Linker switches
+- `ccv_ada.gpr` links against `libccv.a`. Linker switches
   propagate via `Linker_Options` (matches ada-imgui's pattern).
 - macOS-specific: link against the Accelerate framework
   (CCV uses Apple's BLAS via Accelerate when available).
@@ -97,13 +97,13 @@ Future v0.2+ surface (queued, not in scope now):
 ## Repository layout (planned)
 
 ```
-ada-ccv/
+ccv-ada/
 ├── CHARTER.md           — this
 ├── README.md            — public-facing one-pager
 ├── THANKS.md            — dedication, matches ada-imgui/ada-stb
 ├── LICENSE              — MIT
 ├── alire.toml           — crate metadata
-├── ada_ccv.gpr          — GPR build file
+├── ccv_ada.gpr          — GPR build file
 ├── src/
 │   ├── ccv.ads          — top-level package, lifecycle
 │   ├── ccv-types.ads    — ccv_dense_matrix_t wrapper, Size, etc.

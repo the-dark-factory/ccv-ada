@@ -1,4 +1,4 @@
-# ada-ccv
+# ccv-ada
 
 Ada bindings to [Liu Liu's CCV](https://github.com/liuliu/ccv), a
 modern C-based computer vision library.
