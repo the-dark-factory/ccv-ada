@@ -10,6 +10,14 @@ build/
 alire/
 config/
 *.exe
+
+# CCV is NOT vendored into the crate (CHARTER non-goal): cloned to ~/dev/ccv and
+# built externally. If a consumer clones it under vendor/, ignore it too.
+vendor/
 vendor/ccv/
+
+# scripts/gen.sh re-derives the full CCV C surface here as a hand-binding
+# reference; it is machine output, like a build artifact — not committed.
+generated/
 examples/transform/transform
 examples/transform/obj/
