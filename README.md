@@ -8,7 +8,7 @@ Factory's Ada line. The community wishlist asked for OpenCV or
 CCV; CCV is the modern-pure-C, BSD-3, actively-maintained
 option, and gets us into people's hands fastest.
 
-Alire crate: **`ccv_ada`**.
+Alire crate: **`df_ccv`**.
 
 This is a **binding**, not a verified component: a careful,
 hand-written Ada bridge to CCV's C — not a proof of it. v0.1
@@ -45,7 +45,7 @@ bind is pinned to CCV commit
 `2d70fad6f4465e12419b2b834427799ff8a58325` ("Fix a loading
 issue", unstable branch, 2026-05-27).
 
-`ccv_ada.gpr` finds `libccv.a` via the `CCV_LIB_DIR` environment
+`df_ccv.gpr` finds `libccv.a` via the `CCV_LIB_DIR` environment
 variable (defaults to `~/dev/ccv/lib`). Then:
 
 ```sh
@@ -93,7 +93,7 @@ with `GEN_GCC=` and the CCV checkout with `CCV_SRC=`.
 | `examples/transform/` | load → transform → write smoke demo + C reference |
 | `scripts/gen.sh` | re-derives CCV's full C surface into `generated/` as a hand-binding reference (not a `src/` reproducer) |
 | `generated/` | machine output of `gen.sh` (git-ignored) |
-| `ccv_ada.gpr` | GPR; links `libccv.a` via `CCV_LIB_DIR` |
+| `df_ccv.gpr` | GPR; links `libccv.a` via `CCV_LIB_DIR` |
 | (external) `~/dev/ccv` | upstream CCV clone — built, not vendored (CHARTER non-goal) |
 
 ## License

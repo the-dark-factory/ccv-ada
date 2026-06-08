@@ -8,7 +8,7 @@
 --  Consumers `with "ccv_ada.gpr"` and the Linker_Options below
 --  propagate the CCV link + macOS Accelerate framework.
 
-library project Ccv_Ada is
+library project Df_Ccv is
 
    for Library_Name use "ccv_ada";
    for Library_Kind use "static";
@@ -51,4 +51,4 @@ library project Ccv_Ada is
          "-g");
    end Compiler;
 
-end Ccv_Ada;
+end Df_Ccv;

@@ -1,4 +1,4 @@
-name = "ccv_ada"
+name = "df_ccv"
 description = "Ada bindings to Liu Liu's CCV computer vision library"
 version = "0.1.0"
 authors = ["The Dark Factory Ltd"]
@@ -7,7 +7,7 @@ maintainers-logins = ["tonygair"]
 licenses = "MIT"
 website = "https://github.com/the-dark-factory/ccv-ada"
 tags = ["binding", "image", "computer-vision", "ccv"]
-project-files = ["ccv_ada.gpr"]
+project-files = ["df_ccv.gpr"]
 auto-gpr-with = false
 
 [build-switches]
